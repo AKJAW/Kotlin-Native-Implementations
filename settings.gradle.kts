@@ -1,4 +1,4 @@
-rootProject.name = "MyApplication"
+rootProject.name = "KotlinNativeImplementations"
 
 include(":androidApp")
 include(":shared")
