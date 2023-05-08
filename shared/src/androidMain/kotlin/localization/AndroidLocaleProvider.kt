@@ -4,7 +4,9 @@ import java.util.Locale
 
 class AndroidLocaleProvider : LocaleProvider {
 
-    override fun getLanguage(): Language = Language(Locale.getDefault().language)
+    override fun getLanguage(): Language =
+        Language(Locale.getDefault().language)
 }
 
-actual fun createLocaleProvider(): LocaleProvider = AndroidLocaleProvider()
+actual fun createLocaleProvider(): LocaleProvider =
+    AndroidLocaleProvider()

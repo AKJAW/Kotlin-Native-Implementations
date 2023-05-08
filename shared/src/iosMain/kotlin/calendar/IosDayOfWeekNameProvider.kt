@@ -5,7 +5,9 @@ import localization.createLocaleProvider
 import platform.Foundation.NSDateFormatter
 import platform.Foundation.NSLocale
 
-class IosDayOfWeekNameProvider(private val localeProvider: LocaleProvider) : DayOfWeekNameProvider {
+class IosDayOfWeekNameProvider(
+    private val localeProvider: LocaleProvider
+) : DayOfWeekNameProvider {
 
     override fun getLongName(dayNumber: Int): String? {
         val dateFormatter = NSDateFormatter().apply {

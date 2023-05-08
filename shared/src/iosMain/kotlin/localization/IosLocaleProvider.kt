@@ -6,7 +6,9 @@ import platform.Foundation.languageCode
 
 class IosLocaleProvider : LocaleProvider {
 
-    override fun getLanguage(): Language = Language(NSLocale.currentLocale.languageCode)
+    override fun getLanguage(): Language =
+        Language(NSLocale.currentLocale.languageCode)
 }
 
-actual fun createLocaleProvider(): LocaleProvider = IosLocaleProvider()
+actual fun createLocaleProvider(): LocaleProvider =
+    IosLocaleProvider()

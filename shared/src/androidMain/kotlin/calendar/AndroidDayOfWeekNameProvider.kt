@@ -4,7 +4,9 @@ import localization.LocaleProvider
 import localization.createLocaleProvider
 import java.util.*
 
-class AndroidDayOfWeekNameProvider(private val localeProvider: LocaleProvider) : DayOfWeekNameProvider {
+class AndroidDayOfWeekNameProvider(
+    private val localeProvider: LocaleProvider
+) : DayOfWeekNameProvider {
 
     override fun getLongName(dayNumber: Int): String? {
         val calendar = Calendar.getInstance()
