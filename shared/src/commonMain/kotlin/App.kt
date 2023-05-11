@@ -12,7 +12,7 @@ import localization.createLocaleProvider
 @Composable
 fun App() {
     val localeProvider = remember { createLocaleProvider() }
-    val dayOfWeekNameProvider = remember { createDayOfWeekNameProvider() }
+    val dayOfWeekNameProvider = remember { createDayOfWeekNameProvider(createLocaleProvider()) }
     MaterialTheme {
         var dayNumber by remember { mutableStateOf(1) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {

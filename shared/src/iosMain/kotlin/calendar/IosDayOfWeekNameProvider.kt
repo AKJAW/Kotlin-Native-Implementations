@@ -1,7 +1,6 @@
 package calendar
 
 import localization.LocaleProvider
-import localization.createLocaleProvider
 import platform.Foundation.NSDateFormatter
 import platform.Foundation.NSLocale
 
@@ -18,5 +17,5 @@ class IosDayOfWeekNameProvider(
     }
 }
 
-actual fun createDayOfWeekNameProvider(): DayOfWeekNameProvider =
-    IosDayOfWeekNameProvider(createLocaleProvider())
+actual fun createDayOfWeekNameProvider(localeProvider: LocaleProvider): DayOfWeekNameProvider =
+    IosDayOfWeekNameProvider(localeProvider)

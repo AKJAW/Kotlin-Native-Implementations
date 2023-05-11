@@ -16,5 +16,5 @@ class AndroidDayOfWeekNameProvider(
     }
 }
 
-actual fun createDayOfWeekNameProvider(): DayOfWeekNameProvider =
+actual fun createDayOfWeekNameProvider(localeProvider: LocaleProvider): DayOfWeekNameProvider =
     AndroidDayOfWeekNameProvider(createLocaleProvider())
