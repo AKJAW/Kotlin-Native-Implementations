@@ -17,5 +17,7 @@ class IosDayOfWeekNameProvider(
     }
 }
 
-actual fun createDayOfWeekNameProvider(localeProvider: LocaleProvider): DayOfWeekNameProvider =
+actual fun createDayOfWeekNameProvider(
+    localeProvider: LocaleProvider
+): DayOfWeekNameProvider =
     IosDayOfWeekNameProvider(localeProvider)

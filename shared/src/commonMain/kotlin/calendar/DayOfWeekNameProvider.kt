@@ -7,4 +7,6 @@ interface DayOfWeekNameProvider {
     fun getLongName(dayNumber: Int): String?
 }
 
-expect fun createDayOfWeekNameProvider(localeProvider: LocaleProvider): DayOfWeekNameProvider
+expect fun createDayOfWeekNameProvider(
+    localeProvider: LocaleProvider
+): DayOfWeekNameProvider

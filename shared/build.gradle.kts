@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTargetWithSimulatorTests
+
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -26,6 +28,7 @@ kotlin {
     }
 
     sourceSets {
+        val kotlinVersion = extra["kotlin.version"] as String
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
@@ -35,11 +38,23 @@ kotlin {
 //                implementation(compose.components.resources)
             }
         }
+        val commonTest by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlin:kotlin-test-common:$kotlinVersion")
+                implementation("org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlinVersion")
+            }
+        }
         val androidMain by getting {
             dependencies {
                 api("androidx.activity:activity-compose:1.6.1")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.9.0")
+            }
+        }
+        val androidUnitTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosX64Main by getting
@@ -50,6 +65,19 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+        }
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
+        }
+
+        targets.withType(KotlinNativeTargetWithSimulatorTests::class.java) {
+            testRuns["test"].deviceId = "iPhone 14"
         }
     }
 }
