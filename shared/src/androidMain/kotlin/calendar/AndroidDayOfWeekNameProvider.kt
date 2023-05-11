@@ -10,7 +10,7 @@ class AndroidDayOfWeekNameProvider(
 
     override fun getLongName(dayNumber: Int): String? {
         val calendar = Calendar.getInstance()
-        calendar.set(Calendar.DAY_OF_WEEK, dayNumber)
+        calendar.set(Calendar.DAY_OF_WEEK, dayNumber + 1)
         val locale = Locale(localeProvider.getLanguage().value)
         return calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, locale)
     }
