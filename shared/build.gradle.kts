@@ -29,10 +29,10 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
+//                implementation(compose.foundation)
+//                implementation(compose.material)
+//                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+//                implementation(compose.components.resources)
             }
         }
         val androidMain by getting {
